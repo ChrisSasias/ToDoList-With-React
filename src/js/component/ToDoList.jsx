@@ -20,16 +20,18 @@ const ToDoList = () => {
       <input
         type="text"
         value={task}
-        onChange={(element) => setTask(element.target.value)}
+        onChange={(event) => setTask(event.target.value)}
       />
 
-      <button className="Button btn btn-success " onClick={addTask}>Add</button>
+      <button className="Button btn btn-success " onClick={addTask}>
+        Add
+      </button>
       <ul>
         {tasks.map((task, index) => (
           <li key={index}>
             {task}
             <span className="delete" onClick={() => clear(task)}>
-              🗑️
+              🗑️{" "}
             </span>
           </li>
         ))}
