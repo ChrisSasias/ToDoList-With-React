@@ -3,11 +3,19 @@ import React, { useState } from "react";
 const ToDoList = () => {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
+  const [highlightedTask, setHighlightedTask] = useState(null);
 
   const addTask = () => {
     setTasks([...tasks, task]);
     setTask("");
   };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' && task.trim() !== '') {
+      addTask();
+    }
+  };
+
   const clear = (taskToDelete) => {
     const updatedTasks = tasks.filter((task) => task !== taskToDelete);
     setTasks(updatedTasks);
@@ -21,6 +29,7 @@ const ToDoList = () => {
         type="text"
         value={task}
         onChange={(event) => setTask(event.target.value)}
+        onKeyDown={handleKeyDown}
       />
 
       <button className="Button btn btn-success " onClick={addTask}>
@@ -28,11 +37,18 @@ const ToDoList = () => {
       </button>
       <ul>
         {tasks.map((task, index) => (
-          <li key={index}>
+          <li
+            key={index}
+  
+            onMouseOver={() => setHighlightedTask(index)}
+
+          >
             {task}
-            <span className="delete" onClick={() => clear(task)}>
-              🗑️{" "}
-            </span>
+            {(highlightedTask === index || highlightedTask === 'delete') && (
+              <span className="delete" onClick={() => clear(task)}>
+                🗑️{" "}
+              </span>
+            )}
           </li>
         ))}
       </ul>
