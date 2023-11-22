@@ -3,17 +3,33 @@
   margin-left: 5px;
 }
 
-button{
-    margin:10px
+button {
+  margin: 10px
 }
 
-body{
-background-image: url(https://f.vividscreen.info/soft/dc7659b25e16bc48d40762d3d29fec6f/Brown-Leather-with-Seam-1920x1200.jpg);
+body {
+  background-image: url(https://f.vividscreen.info/soft/dc7659b25e16bc48d40762d3d29fec6f/Brown-Leather-with-Seam-1920x1200.jpg);
 }
 
-h1, li{
-
-    color:rgb(179, 179, 179);
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+h1,
+li {
+font-size: 25px;
+  color: rgb(179, 179, 179);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+.msg {
+  
+  color: rgb(160, 63, 63);
+  font-weight: bold;
+  font-size: 30px;
+  border: solid 6px rgba(195, 62, 62, 0.399);
+  border-radius: 15px;
+}
+
+h1{
+
+  font-size: 40px;
+  color: rgb(179, 179, 179);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

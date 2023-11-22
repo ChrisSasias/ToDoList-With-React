@@ -35,23 +35,27 @@ const ToDoList = () => {
       <button className="Button btn btn-success " onClick={addTask}>
         Add
       </button>
-      <ul>
-        {tasks.map((task, index) => (
-          <li
-            key={index}
-  
-            onMouseOver={() => setHighlightedTask(index)}
 
-          >
-            {task}
-            {(highlightedTask === index || highlightedTask === 'delete') && (
-              <span className="delete" onClick={() => clear(task)}>
-                🗑️{" "}
-              </span>
-            )}
-          </li>
-        ))}
-      </ul>
+      {tasks.length === 0 ? (
+        <p className="msg">No tasks entered.</p>
+      ) : (
+        <ul>
+          {tasks.map((task, index) => (
+            <li
+              key={index}
+              onMouseOver={() => setHighlightedTask(index)}
+              
+            >
+              {task}
+              {(highlightedTask === index || highlightedTask === 'delete') && (
+                <span className="delete" onClick={() => clear(task)}>
+                  🗑️{" "}
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
